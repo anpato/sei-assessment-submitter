@@ -1,0 +1,33 @@
+{
+  "name": "unit-assessment-folder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "14.11.0"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "test": "jest",
+    "start": "node dist/server.js",
+    "postinstall": "tsc && rm -rf src"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.5.2",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.13"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.8",
+    "@types/jest": "^26.0.14",
+    "@types/multer": "^1.4.4",
+    "@types/node": "^14.11.5",
+    "@types/nodemailer": "^6.4.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  }
+}
