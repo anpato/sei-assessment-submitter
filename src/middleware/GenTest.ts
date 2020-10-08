@@ -37,7 +37,7 @@ afterAll(() => {
 
 describe('Your Assessment Results', () => {
   let grades = new GradeTests()
-  const functions = require('../assessment')
+  const functions = require('${process.cwd()}/assessment')
   const {
     cars,
     findTheVin,
