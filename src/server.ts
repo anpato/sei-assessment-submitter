@@ -46,10 +46,9 @@ app.post(
             test
           )
           res.end(JSON.stringify({ msg: ' File Uploaded' }), () => {
-            exec('yarn test', (err, stdout) => {
-              if (err) throw err
-              console.log(stdout)
-            })
+            let script = exec('yarn test')
+            script.on('error', () => console.log('Tests Failed'))
+            script.on('exit', () => console.log('Test Finished'))
           })
         }
       }
