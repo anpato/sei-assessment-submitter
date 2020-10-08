@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "test": "jest",
+    "test": "jest --silent",
     "start": "node dist/server.js",
     "postinstall": "tsc && rm -rf src && mkdir tests"
   },
