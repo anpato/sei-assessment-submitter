@@ -37,18 +37,21 @@ app.post(
       (err) => {
         if (err) return res.send({ message: 'Already Submitted' })
         if (readFileSync(`${process.cwd()}/assessments/${dName}/${fName}`)) {
-          let test = GenTest({
-            fileName: fName,
-            folder: dName
-          })
+          let test = GenTest(
+            {
+              fileName: fName,
+              folder: dName
+            },
+            req.body.email
+          )
           writeFileSync(
             `${process.cwd()}/tests/${fName.split('.')[0]}.test.js`,
             test
           )
-          res.end(JSON.stringify({ msg: ' File Uploaded' }), () => {
-            let script = exec('yarn test')
-            script.on('error', () => console.log('Tests Failed'))
-            script.on('exit', () => console.log('Test Finished'))
+          res.end(JSON.stringify({ msg: ' File Uploaded' }), async () => {
+            exec('yarn test', (err, stdout) => {
+              console.log(err, stdout)
+            })
           })
         }
       }
