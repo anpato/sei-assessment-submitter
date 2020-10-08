@@ -56,31 +56,37 @@ describe('Your Assessment Results', () => {
   let passed = 0
   test('reverseArr should do something', () => {
     let reversed = cars.reverse()
+    expect(reverseArr()).toBeDefined()
     expect(reverseArr()).toEqual(reversed)
     gradeBook.incrementPassed()
   })
   test('findTheVin should return a single car object where the vin = NJAA6JLYVPNN93642', () => {
     let found = cars.find((c) => c.info.vin === 'NJAA6JLYVPNN93642')
+    expect(findTheVin()).toBeDefined()
     expect(findTheVin()).toEqual(found)
     gradeBook.incrementPassed()
   })
   test('lookupVin should return all of the car objects where the vin includes a 5', () => {
     let found = cars.filter((c) => c.info.vin.includes('5'))
+    expect(lookUpVin()).toBeDefined()
     expect(lookUpVin()).toEqual(found)
     gradeBook.incrementPassed()
   })
   test("whatColor should return the color of the car who's model = Maserati Grand Caravan", () => {
     let found = cars.find((c) => c.model === 'Maserati Grand Caravan').color
+    expect(whatColor()).toBeDefined()
     expect(whatColor()).toEqual(found)
     gradeBook.incrementPassed()
   })
   test('giveMeAllTheModels should return an array of all of the car models', () => {
     let found = cars.map((c) => c.model)
+    expect(findTheVin()).toBeDefined()
     expect(giveMeAllTheModels()).toEqual(found)
     gradeBook.incrementPassed()
   })
   test('sortedSpeeds should return an array of all of the cars sorted by topSpeed from largest to smallest', () => {
     let found = cars.sort((a, b) => b.info.topSpeed - a.info.topSpeed)
+    expect(sortedSpeeds()).toBeDefined()
     expect(sortedSpeeds()).toEqual(found)
     gradeBook.incrementPassed()
   })
@@ -88,6 +94,7 @@ describe('Your Assessment Results', () => {
     let found = cars.filter(
       (c) => c.info.fuel === 'Electric' || c.info.fuel === 'Hybrid'
     )
+    expect(goGreen()).toBeDefined()
     expect(goGreen()).toEqual(found)
     gradeBook.incrementPassed()
   })
@@ -108,6 +115,7 @@ describe('Your Assessment Results', () => {
 
       return obj
     })
+    expect(fixError()).toBeDefined()
     expect(fixError()).toEqual(found)
     gradeBook.incrementPassed()
   })
@@ -123,6 +131,7 @@ describe('Your Assessment Results', () => {
           return 'The ' +c.model +' is too dangerous'
       }
     })
+    expect(checkIfCarIsDangerous()).toBeDefined()
     expect(checkIfCarIsDangerous()).toEqual(found)
     gradeBook.incrementPassed()
   })
@@ -133,6 +142,7 @@ describe('Your Assessment Results', () => {
       )
       return accumulator
     }, [])
+    expect(createADescription()).toBeDefined()
     expect(createADescription()).toEqual(found)
     gradeBook.incrementPassed()
   })
