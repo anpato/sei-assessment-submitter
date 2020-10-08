@@ -132,7 +132,7 @@ describe('Your Assessment Results', () => {
         'The'+ ' ' +car.color  +' '+ car.model +' ' + 'has a top speed of' +' '+car.info.topSpeed
       )
       return accumulator
-    }, [])}
+    }, [])
     expect(createADescription()).toEqual(found)
     gradeBook.incrementPassed()
   })
