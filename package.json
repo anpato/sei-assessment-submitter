@@ -10,7 +10,7 @@
     "dev": "nodemon src/server.ts",
     "test": "jest",
     "start": "node dist/server.js",
-    "postinstall": "tsc && rm -rf src && mkdir tests"
+    "postinstall": "tsc && mkdir tests && cd client && yarn install && yarn build"
   },
   "dependencies": {
     "cors": "^2.8.5",

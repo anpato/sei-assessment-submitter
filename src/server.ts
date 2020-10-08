@@ -11,6 +11,7 @@ import dotenv from 'dotenv'
 import multer from 'multer'
 import GenTest from './middleware/GenTest'
 import { exec } from 'child_process'
+import path from 'path'
 dotenv.config()
 const app: Application = express()
 
@@ -19,7 +20,10 @@ const port: string = process.env.PORT || '3001'
 app.use(cors())
 
 app.disable('x-powered-by')
-
+app.use(express.static(path.join(__dirname, '../client/build')))
+app.get('*', (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'))
+})
 app.post(
   '/upload',
   multer({ storage: multer.memoryStorage() }).single('file'),
