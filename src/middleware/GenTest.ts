@@ -37,7 +37,9 @@ afterAll(() => {
 
 describe('Your Assessment Results', () => {
   let grades = new GradeTests()
-  const functions = require('${process.cwd()}/assessment')
+  const functions = require('${process.cwd()}/assessments/${file.folder}/${
+  file.fileName
+}')
   const {
     cars,
     findTheVin,
