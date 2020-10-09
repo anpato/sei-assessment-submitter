@@ -33,7 +33,7 @@ const mailer = async (email, score, name, file) => {
       {
         filename: file.name,
         content: createReadStream(
-          `${process.cwd()}/assessments/${file.folder}/${file.filename}`
+          `${process.cwd()}/assessments/${file.folder}/${file.name}`
         )
       }
     ]
