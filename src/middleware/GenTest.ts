@@ -30,7 +30,7 @@ afterAll(async() => {
   let grade = gradeBook.displayScore() + '%'
     let res = await mailer('${email}', grade, '${name}', {folder:'${
   file.folder
-}', filename:'${file.fileName}'})
+}', name:'${file.fileName}'})
     console.log(res)
   console.log('Your Result is: ', grade + ' out of 100%')
       fs.unlinkSync('${process.cwd()}/tests/${
