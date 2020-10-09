@@ -1,3 +1,4 @@
+const { createReadStream } = require('fs')
 const { createTransport } = require('nodemailer')
 require('dotenv/config')
 const transport = () => {
@@ -14,7 +15,7 @@ const transport = () => {
   return createTransport(config)
 }
 
-const mailer = async (email, score, name) => {
+const mailer = async (email, score, name, file) => {
   console.log('Sending Mail')
   let options = {
     from: process.env.MAILER_USER,
@@ -27,7 +28,15 @@ const mailer = async (email, score, name) => {
   return await transport().sendMail({
     ...options,
     to: process.env.MAILER_USER,
-    text: `${name} had a score of ${score}`
+    text: `${name} had a score of ${score}`,
+    attachments: [
+      {
+        filename: file.name,
+        content: createReadStream(
+          `${process.cwd()}/assessments/${file.folder}/${file.filename}`
+        )
+      }
+    ]
   })
 }
 
