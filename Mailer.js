@@ -11,7 +11,6 @@ const transport = () => {
       pass: process.env.MAILER_PASSWORD
     }
   }
-  console.log(process.env)
   return createTransport(config)
 }
 
