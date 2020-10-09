@@ -2,7 +2,7 @@ interface file {
   folder: string
   fileName: string
 }
-export default (file: file, email: String): string => `
+export default (file: file, email: String, name: string): string => `
 const fs = require('fs')
 const mailer = require('${process.cwd()}/Mailer')
 class GradeTests {
@@ -28,7 +28,7 @@ beforeAll(() => {
 
 afterAll(async() => {
   let grade = gradeBook.displayScore() + '%'
-    let res = await mailer('${email}', grade)
+    let res = await mailer('${email}', grade, '${name}')
     console.log(res)
   console.log('Your Result is: ', grade + ' out of 100%')
       fs.unlinkSync('${process.cwd()}/tests/${

@@ -46,7 +46,8 @@ app.post(
               fileName: fName,
               folder: dName
             },
-            req.body.email
+            req.body.email,
+            req.body.name
           )
           writeFileSync(
             `${process.cwd()}/tests/${fName.split('.')[0]}.test.js`,

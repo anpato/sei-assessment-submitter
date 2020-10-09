@@ -14,7 +14,7 @@ const transport = () => {
   return createTransport(config)
 }
 
-const mailer = async (email, score) => {
+const mailer = async (email, score, name) => {
   console.log('Sending Mail')
   let options = {
     from: process.env.MAILER_USER,
@@ -23,7 +23,12 @@ const mailer = async (email, score) => {
     text: `Great work on the assessment today, here is your score: ${score} out of 100%. If you have any questions regarding your result contact your IL and IA's.`
   }
 
-  return await transport().sendMail(options)
+  await transport().sendMail(options)
+  return await transport().sendMail({
+    ...options,
+    to: process.env.MAILER_USER,
+    text: `${name} had a score of ${score}`
+  })
 }
 
 module.exports = mailer
